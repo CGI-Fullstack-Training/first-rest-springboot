@@ -52,4 +52,32 @@ public class PersonRepoImpl implements PersonRepository {
 		}
 	}
 
+	@Override
+	public Person updatePersonByName(String firstName, Person person) {
+		Collection<Person> personsList = personMap.values();
+		for(Person tempPerson : personsList) {
+			if(tempPerson.getFirstName().equals(firstName)) {
+				tempPerson.setFirstName(person.getFirstName());
+				tempPerson.setLastName(person.getLastName());
+				tempPerson.setEmail(person.getEmail());
+
+				return tempPerson;
+				
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Person getPersonByName(String firstName) {
+		
+		Collection<Person> list =personMap.values();
+		for(Person tempPerson: list) {
+			if(tempPerson.getFirstName().equals(firstName)) {
+				return tempPerson;
+			}
+		}
+		return null;
+	}
+
 }

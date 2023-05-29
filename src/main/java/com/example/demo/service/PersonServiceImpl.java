@@ -37,4 +37,14 @@ public class PersonServiceImpl implements PersonService {
 	 return personRepository.updatePersonById(personId,person);
 	}
 
+	@Override
+	public Person updatePersonByName(String firstName, Person person) {
+		return personRepository.updatePersonByName(firstName,person);
+	}
+
+	@Override
+	public Person getPersonByName(String firstName) {
+		return personRepository.getPersonByName(firstName);
+	}
+
 }

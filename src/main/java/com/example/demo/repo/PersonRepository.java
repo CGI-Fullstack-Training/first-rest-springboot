@@ -14,4 +14,8 @@ public interface PersonRepository {
 
 	public Person updatePersonById(int personId, Person person);
 
+	public Person updatePersonByName(String firstName, Person person);
+
+	public Person getPersonByName(String firstName);
+
 }
