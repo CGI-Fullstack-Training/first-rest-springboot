@@ -12,4 +12,6 @@ public interface PersonRepository {
 
 	public Person getPersonById(int personId);
 
+	public Person updatePersonById(int personId, Person person);
+
 }

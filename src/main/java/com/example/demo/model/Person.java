@@ -25,11 +25,11 @@ public class Person {
 		this.personId = personId;
 	}
 
-	public String getFirstNmae() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setFirstNmae(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 

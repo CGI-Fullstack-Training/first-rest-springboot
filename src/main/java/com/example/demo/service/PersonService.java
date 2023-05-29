@@ -10,4 +10,6 @@ public interface PersonService {
 	public Person createPerson(Person person);
 
 	public Person getPersonById(int personId);
+
+	public Person updatePersonById(int personId, Person person);
 }

@@ -29,8 +29,27 @@ public class PersonRepoImpl implements PersonRepository {
 
 	@Override
 	public Person getPersonById(int personId) {
-		return personMap.get(personId);
+		Person p = personMap.get(personId);
+		if (p == null) {
+			return null;
+		} else {
+			return p;
+		}
+	}
 
+	@Override
+	public Person updatePersonById(int personId, Person person) {
+		Person p = personMap.get(personId);
+		if (p == null) {
+			System.out.println("person not found with personId " + personId);
+			return null;
+		} else {
+			p.setFirstName(person.getFirstName());
+			p.setLastName(person.getLastName());
+			p.setEmail(person.getEmail());
+
+			return p;
+		}
 	}
 
 }
