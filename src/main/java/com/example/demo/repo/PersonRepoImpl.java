@@ -1,7 +1,8 @@
 package com.example.demo.repo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -10,22 +11,26 @@ import com.example.demo.model.Person;
 @Repository
 public class PersonRepoImpl implements PersonRepository {
 
-	private List<Person> persons = null;
-
+	private Map<Integer, Person> personMap = null;
 	{
-		persons = new ArrayList<Person>();
+		personMap = new HashMap<Integer, Person>();
 	}
 
 	@Override
-	public List<Person> getAllPersons() {
-		// TODO Auto-generated method stub
-		return persons;
+	public Collection<Person> getAllPersons() {
+		return personMap.values();
 	}
 
 	@Override
 	public Person createPerson(Person person) {
-		persons.add(person);
+		personMap.put(person.getPersonId(), person);
 		return person;
+	}
+
+	@Override
+	public Person getPersonById(int personId) {
+		return personMap.get(personId);
+
 	}
 
 }

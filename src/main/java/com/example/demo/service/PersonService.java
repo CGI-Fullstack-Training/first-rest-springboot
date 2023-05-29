@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.example.demo.model.Person;
 
 public interface PersonService {
-	public List<Person> getAllPersons();
+	public Collection<Person> getAllPersons();
 
 	public Person createPerson(Person person);
+
+	public Person getPersonById(int personId);
 }
