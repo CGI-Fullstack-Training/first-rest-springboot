@@ -123,8 +123,14 @@ public class PersonController {
 	}
 	
 	@DeleteMapping("/person/{id}")
-	public void deletePersonById(@PathVariable("id") int id) {
-		personService.deletePersonById(id);
+	public ResponseEntity<?> deletePersonById(@PathVariable("id") int id) {
+		String p=personService.deletePersonById(id);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("person with id " + id + " not found");
+
+		}
+		return ResponseEntity.ok().body("person deleted sucessfully");
 		
 	}
 	

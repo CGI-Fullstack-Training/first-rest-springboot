@@ -135,9 +135,15 @@ public class PersonRepoImpl implements PersonRepository {
 	}
 
 	@Override
-	public void deletePersonById(int id) {
+	public String deletePersonById(int id) {
+		if(personMap.get(id) != null) {
 		personMap.remove(id);
-		System.out.println("person with Id"+id+" succ delete ");
+		return "person with Id"+id+" successfully delete ";
+		
+		}
+		else {
+			return null;
+		}
 		
 	}
 

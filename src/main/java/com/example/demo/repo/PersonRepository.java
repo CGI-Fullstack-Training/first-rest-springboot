@@ -26,6 +26,6 @@ public interface PersonRepository {
 
 	public Person getPersonByEmail(String email, Person person);
 
-	public void deletePersonById(int id);
+	public String deletePersonById(int id);
 
 }

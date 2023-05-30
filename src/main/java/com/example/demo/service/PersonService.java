@@ -25,5 +25,5 @@ public interface PersonService {
 
 	public Person updatePersonByEmail(String email, Person person);
 
-	public void deletePersonById(int id);
+	public String deletePersonById(int id);
 }

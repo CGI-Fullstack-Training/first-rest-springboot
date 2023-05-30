@@ -68,8 +68,8 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public void deletePersonById(int id) {
-		 personRepository.deletePersonById(id);
+	public String deletePersonById(int id) {
+		return  personRepository.deletePersonById(id);
 	}
 
 }
