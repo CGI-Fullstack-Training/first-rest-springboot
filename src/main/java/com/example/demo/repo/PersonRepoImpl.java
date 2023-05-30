@@ -134,4 +134,11 @@ public class PersonRepoImpl implements PersonRepository {
 		return null;
 	}
 
+	@Override
+	public void deletePersonById(int id) {
+		personMap.remove(id);
+		System.out.println("person with Id"+id+" succ delete ");
+		
+	}
+
 }

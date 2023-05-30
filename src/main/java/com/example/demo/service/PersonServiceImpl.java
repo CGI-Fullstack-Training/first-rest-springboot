@@ -64,8 +64,12 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person updatePersonByEmail(String email, Person person) {
-		// TODO Auto-generated method stub
 		return personRepository.getPersonByEmail(email,person);
+	}
+
+	@Override
+	public void deletePersonById(int id) {
+		 personRepository.deletePersonById(id);
 	}
 
 }
