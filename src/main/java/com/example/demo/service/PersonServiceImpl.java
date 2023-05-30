@@ -38,13 +38,34 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public Person updatePersonByName(String firstName, Person person) {
-		return personRepository.updatePersonByName(firstName,person);
+	public Person updatePersonByFirstName(String firstName, Person person) {
+		return personRepository.updatePersonByFirstName(firstName,person);
 	}
 
 	@Override
-	public Person getPersonByName(String firstName) {
-		return personRepository.getPersonByName(firstName);
+	public Person getPersonByFirstName(String firstName) {
+		return personRepository.getPersonByFirstName(firstName);
+	}
+
+	@Override
+	public Person getPersonByLastName(String lastName) {
+		return personRepository.getPersonByLastName(lastName);
+	}
+
+	@Override
+	public Person updatePersonByLastName(String lastName, Person person) {
+		return personRepository.updatePersonByLastName(lastName,person);
+	}
+
+	@Override
+	public Person getPersonByEmail(String email) {
+		return personRepository.getPersonByEmail(email);
+	}
+
+	@Override
+	public Person updatePersonByEmail(String email, Person person) {
+		// TODO Auto-generated method stub
+		return personRepository.getPersonByEmail(email,person);
 	}
 
 }

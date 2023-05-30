@@ -53,28 +53,82 @@ public class PersonRepoImpl implements PersonRepository {
 	}
 
 	@Override
-	public Person updatePersonByName(String firstName, Person person) {
+	public Person updatePersonByFirstName(String firstName, Person person) {
 		Collection<Person> personsList = personMap.values();
-		for(Person tempPerson : personsList) {
-			if(tempPerson.getFirstName().equals(firstName)) {
+		for (Person tempPerson : personsList) {
+			if (tempPerson.getFirstName().equals(firstName)) {
 				tempPerson.setFirstName(person.getFirstName());
 				tempPerson.setLastName(person.getLastName());
 				tempPerson.setEmail(person.getEmail());
 
 				return tempPerson;
-				
+
 			}
 		}
 		return null;
 	}
 
 	@Override
-	public Person getPersonByName(String firstName) {
-		
-		Collection<Person> list =personMap.values();
-		for(Person tempPerson: list) {
-			if(tempPerson.getFirstName().equals(firstName)) {
+	public Person getPersonByFirstName(String firstName) {
+
+		Collection<Person> list = personMap.values();
+		for (Person tempPerson : list) {
+			if (tempPerson.getFirstName().equals(firstName)) {
 				return tempPerson;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Person getPersonByLastName(String lastName) {
+		Collection<Person> list = personMap.values();
+		for (Person tempPerson : list) {
+			if (tempPerson.getLastName().equals(lastName)) {
+				return tempPerson;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Person updatePersonByLastName(String lastName, Person person) {
+		Collection<Person> personsList = personMap.values();
+		for (Person tempPerson : personsList) {
+			if (tempPerson.getLastName().equals(lastName)) {
+				tempPerson.setFirstName(person.getFirstName());
+				tempPerson.setLastName(person.getLastName());
+				tempPerson.setEmail(person.getEmail());
+
+				return tempPerson;
+
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Person getPersonByEmail(String email) {
+		Collection<Person> list = personMap.values();
+		for (Person tempPerson : list) {
+			if (tempPerson.getEmail().equals(email)) {
+				return tempPerson;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Person getPersonByEmail(String email, Person person) {
+		Collection<Person> personsList = personMap.values();
+		for (Person tempPerson : personsList) {
+			if (tempPerson.getEmail().equals(email)) {
+				tempPerson.setFirstName(person.getFirstName());
+				tempPerson.setLastName(person.getLastName());
+				tempPerson.setEmail(person.getEmail());
+
+				return tempPerson;
+
 			}
 		}
 		return null;

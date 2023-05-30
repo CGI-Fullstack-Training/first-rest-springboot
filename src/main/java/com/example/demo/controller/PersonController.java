@@ -44,9 +44,9 @@ public class PersonController {
 		}
 	}
 
-	@GetMapping("/person/name/{firstName}")
-	public ResponseEntity<?> getPersonByName(@PathVariable("firstName") String firstName) {
-		Person p = personService.getPersonByName(firstName);
+	@GetMapping("/person/name/firstName/{firstName}")
+	public ResponseEntity<?> getPersonByFirstName(@PathVariable("firstName") String firstName) {
+		Person p = personService.getPersonByFirstName(firstName);
 		if (p == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with name:: " + firstName + " not found");
 
@@ -65,10 +65,10 @@ public class PersonController {
 		return ResponseEntity.ok().body(p);
 	}
 
-	@PutMapping("/person/name/{firstName}")
-	public ResponseEntity<?> updatePersonByName(@PathVariable("firstName") String firstName,
+	@PutMapping("/person/name/firstName/{firstName}")
+	public ResponseEntity<?> updatePersonByFirstName(@PathVariable("firstName") String firstName,
 			@RequestBody Person person) {
-		Person p = personService.updatePersonByName(firstName, person);
+		Person p = personService.updatePersonByFirstName(firstName, person);
 		if (p == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body("person with firstName " + firstName + " not found");
@@ -76,4 +76,49 @@ public class PersonController {
 		}
 		return ResponseEntity.ok().body(p);
 	}
+
+	@GetMapping("/person/name/lastName/{lastName}")
+	public ResponseEntity<?> getPersonByLastName(@PathVariable("lastName") String lastName) {
+		Person p = personService.getPersonByLastName(lastName);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with name:: " + lastName + " not found");
+
+		} else {
+			return ResponseEntity.status(HttpStatus.FOUND).body(p);
+		}
+	}
+	@PutMapping("/person/name/lastName/{lastName}")
+	public ResponseEntity<?> updatePersonByLastName(@PathVariable("lastName") String lastName,
+			@RequestBody Person person) {
+		Person p = personService.updatePersonByLastName(lastName, person);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("person with last " + lastName + " not found");
+
+		}
+		return ResponseEntity.ok().body(p);
+	}
+
+	@GetMapping("/person/email/{email}")
+	public ResponseEntity<?> getPersonByEmail(@PathVariable("email") String email) {
+		Person p = personService.getPersonByEmail(email);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("person with email:: " + email + " not found");
+
+		} else {
+			return ResponseEntity.status(HttpStatus.FOUND).body(p);
+		}
+	}
+	@PutMapping("/person/email/{email}")
+	public ResponseEntity<?> updatePersonByEmail(@PathVariable("email") String email,
+			@RequestBody Person person) {
+		Person p = personService.updatePersonByEmail(email, person);
+		if (p == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+					.body("person with email " + email + " not found");
+
+		}
+		return ResponseEntity.ok().body(p);
+	}
+	
 }
